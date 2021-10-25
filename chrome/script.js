@@ -3,5 +3,5 @@ addHoverBoardButton.addEventListener("click", function() {
      addHoverBoard()
 });
 function addHoverBoard() {
-     browser.tabs.executeScript(null,{file:"hoverBoard.js"});
+     chrome.tabs.executeScript(null,{file:"hoverBoard.js"});
 }
