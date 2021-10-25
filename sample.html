@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>blah.</title>
+</head>
+<body>
+     
+     <script>
+          var prevDOM = null;
+          var isStatic = false;
+          document.addEventListener('mousemove', function (e) {
+               if (!isStatic && !e.srcElement.classList.toString().includes('hoverboard-') && !e.srcElement.id.includes('hoverboard-')) {
+                    var srcElement = e.srcElement;
+                    if (prevDOM != null) {
+                         prevDOM.classList.remove('hoverboard-currently-visiting-element');
+                    }
+                    srcElement.classList.add('hoverboard-currently-visiting-element');
+                    prevDOM = srcElement;
+                    document.getElementById('hoverboard-id-span').innerText = srcElement.id || 'None';
+                    document.getElementById('hoverboard-class-span').innerText = srcElement.classList.toString().replace('hoverboard-currently-visiting-element', '').replaceAll(' ', ', ') || 'None';
+                    document.getElementById('hoverboard-type-span').innerText = srcElement.tagName.toLowerCase();
+               }
+          }, false);
+          document.addEventListener('click', function (e) {
+               isStatic = (isStatic) ? false : true;
+               document.getElementById('hoverboard-locked-indicator').innerText = (isStatic) ? '🔒' : '';
+
+          }, false);
+     </script>
+</body>
+</html>

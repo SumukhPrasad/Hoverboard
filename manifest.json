@@ -1,0 +1,10 @@
+{
+     "name": "Hoverboard",
+     "description": "",
+     "version": "1.0",
+     "manifest_version": 2,
+     "permissions": ["tabs", "http://*/", "https://*/"],
+     "browser_action": {
+          "default_popup": "index.html"
+     }
+}
